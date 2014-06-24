@@ -11,7 +11,7 @@ before_install:
   - sudo apt-get install libicu-dev
 
 script:
-  - cabal configure --enable-tests --enable-library-coverage
+  - cabal configure --enable-tests --enable-library-coverage --force-reinstalls
   - cabal build
   - run-cabal-test --show-details=always
 
