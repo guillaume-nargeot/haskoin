@@ -10,8 +10,11 @@ before_install:
   - cabal install hpc-coveralls
   - sudo apt-get install libicu-dev
 
+before_script:
+  - cabal install --only-dependencies --enable-tests --force-reinstalls
+
 script:
-  - cabal configure --enable-tests --enable-library-coverage --force-reinstalls
+  - cabal configure --enable-tests --enable-library-coverage
   - cabal build
   - run-cabal-test --show-details=always
 
